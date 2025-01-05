@@ -9,6 +9,14 @@ import {
   Users,
 } from "./pages";
 import { AppLayout } from "./layouts";
+import {
+  ACCOUNT,
+  BOOKINGS,
+  CABINS,
+  DASHBOARD,
+  SETTINGS,
+  USERS,
+} from "./constants/routes";
 
 function App() {
   return (
@@ -16,12 +24,12 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route index element={<Navigate to={"dashboard"} />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="bookings" element={<Bookings />} />
-          <Route path="cabins" element={<Cabins />} />
-          <Route path="users" element={<Users />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="account" element={<Account />} />
+          <Route path={DASHBOARD} element={<Dashboard />} />
+          <Route path={BOOKINGS} element={<Bookings />} />
+          <Route path={CABINS} element={<Cabins />} />
+          <Route path={USERS} element={<Users />} />
+          <Route path={SETTINGS} element={<Settings />} />
+          <Route path={ACCOUNT} element={<Account />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
