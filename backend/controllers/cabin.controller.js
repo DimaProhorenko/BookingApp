@@ -84,3 +84,18 @@ export const updateCabin = async (req, res) => {
     sendServerError(res, error);
   }
 };
+
+export const deleteCabin = async (req, res) => {
+  try {
+    console.log("Fuck");
+    const cabin = await Cabin.findById(req.params.id);
+    if (!cabin) {
+      return sendErrorResponse(res, 404, "Cabin not found");
+    }
+
+    await cabin.deleteOne();
+    return sendSuccessResponse(res, 200, "Cabin deleted");
+  } catch (error) {
+    sendServerError(res, error);
+  }
+};
