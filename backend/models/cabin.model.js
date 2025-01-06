@@ -9,10 +9,12 @@ const CabinSchema = mongoose.Schema(
     maxCapacity: {
       type: Number,
       default: 1,
+      min: [1, "Capacity can not be less than 1"],
     },
     regularPrice: {
       type: Number,
       required: true,
+      min: [0, "Price can not be less than 0"],
     },
     discount: {
       type: Number,

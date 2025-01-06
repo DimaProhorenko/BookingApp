@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 
 import connectDB from "./db/connectDB.js";
+import cabinRoutes from "./routes/cabin.routes.js";
 
 dotenv.config();
 
@@ -11,9 +12,9 @@ connectDB();
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-app.use("/", (req, res) => {
-  return res.json({ msg: "Success" });
-});
+app.use(express.json());
+
+app.use("/api/cabins", cabinRoutes);
 
 mongoose.connection.once("open", () => {
   app.listen(PORT, () => {
