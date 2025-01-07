@@ -3,16 +3,21 @@ import Table from ".";
 import { formatCurrency } from "../../../utils/helpers";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteCabin } from "../../../services/apiCabins";
+import toast from "react-hot-toast";
 
 const Row = ({ cabin, deleteHandler }) => {
   const queryClient = useQueryClient();
 
   const { isPending, mutate: handleDeleteCabin } = useMutation({
     mutationFn: (id) => deleteCabin(id),
-    onSuccess: () => {
+    onSuccess: ({ message }) => {
       queryClient.invalidateQueries({
         queryKey: ["cabins"],
       });
+      toast.success(message);
+    },
+    onError: (error) => {
+      toast.error(error.message);
     },
   });
 
