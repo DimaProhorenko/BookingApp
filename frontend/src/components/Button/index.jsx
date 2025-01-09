@@ -55,11 +55,13 @@ const Button = styled.button`
   box-shadow: var(--shadow-sm);
   ${({ $size }) => sizes[$size]}
   ${({ $variant }) => variations[$variant]}
+  width: ${({ $w }) => $w}
 `;
 
 Button.defaultProps = {
   $size: "md",
   $variant: "primary",
+  $w: "auto",
 };
 
 export default Button;

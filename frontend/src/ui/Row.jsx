@@ -6,7 +6,6 @@ const Row = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: ${({ $direction }) => $direction};
-  margin-block-end: 2rem;
 `;
 
 Row.defaultProps = {
