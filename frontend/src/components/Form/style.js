@@ -60,3 +60,8 @@ export const Submit = styled.button``;
 Container.defaultProps = {
   $maxWidth: "400px",
 };
+
+export const Error = styled.p`
+  color: var(--color-red-700);
+  margin-block-start: 0.5rem;
+`;

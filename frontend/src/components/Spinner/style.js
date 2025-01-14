@@ -1,8 +1,13 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const rotate = keyframes`
   to {
     transform: rotate(1turn)
+  }
+`;
+
+const sizes = css`
+  sm: {
   }
 `;
 

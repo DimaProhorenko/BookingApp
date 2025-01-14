@@ -1,5 +1,13 @@
 import React from "react";
-import { Container, Group, Label, Input, Textarea, Submit } from "./style";
+import {
+  Container,
+  Group,
+  Label,
+  Input,
+  Textarea,
+  Submit,
+  Error,
+} from "./style";
 
 const Form = ({ children, ...restProps }) => {
   return <Container {...restProps}>{children}</Container>;
@@ -37,6 +45,10 @@ Form.Textarea = React.forwardRef(function FormTextarea(
 
 Form.Submit = function FormSubmit({ children, ...restProps }) {
   return <Submit {...restProps}>{children}</Submit>;
+};
+
+Form.Error = function FormError({ children, ...restProps }) {
+  return <Error {...restProps}>{children}</Error>;
 };
 
 export default Form;
