@@ -37,8 +37,7 @@ const CreateCabin = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit, onError)}>
-      <Form.Group>
-        <Form.Label htmlFor="name">Cabin Name</Form.Label>
+      <Form.Row label="name" htmlFor="name" error={errors?.name?.message}>
         <Form.Input
           type="text"
           id="name"
@@ -47,10 +46,12 @@ const CreateCabin = () => {
             required: "This field is required",
           })}
         />
-        {errors.name && <Form.Error>{errors.name.message}</Form.Error>}
-      </Form.Group>
-      <Form.Group>
-        <Form.Label htmlFor="maxCapacity">Maximum Capacity</Form.Label>
+      </Form.Row>
+      <Form.Row
+        label="Max Capacity"
+        htmlFor="maxCapacity"
+        error={errors?.maxCapacity?.message}
+      >
         <Form.Input
           type="number"
           default="1"
@@ -68,12 +69,12 @@ const CreateCabin = () => {
             },
           })}
         />
-        {errors.maxCapacity && (
-          <Form.Error>{errors.maxCapacity.message}</Form.Error>
-        )}
-      </Form.Group>
-      <Form.Group>
-        <Form.Label htmlFor="regularPrice">Price</Form.Label>
+      </Form.Row>
+      <Form.Row
+        htmlFor="regularPrice"
+        label="Regular Price"
+        error={errors?.regularPrice?.message}
+      >
         <Form.Input
           type="number"
           id="regularPrice"
@@ -87,12 +88,12 @@ const CreateCabin = () => {
             },
           })}
         />
-        {errors.regularPrice && (
-          <Form.Error>{errors.regularPrice.message}</Form.Error>
-        )}
-      </Form.Group>
-      <Form.Group>
-        <Form.Label htmlFor="discount">Discount</Form.Label>
+      </Form.Row>
+      <Form.Row
+        htmlFor="discount"
+        label="Discount"
+        error={errors?.discount?.message}
+      >
         <Form.Input
           type="number"
           id="discount"
@@ -105,14 +106,16 @@ const CreateCabin = () => {
               message: "Can not be negative",
             },
             validate: (value) =>
-              value <= getValues().regularPrice ||
+              +value <= getValues().regularPrice ||
               "Discount should be less than regular price",
           })}
         />
-        {errors.discount && <Form.Error>{errors.discount.message}</Form.Error>}
-      </Form.Group>
-      <Form.Group>
-        <Form.Label htmlFor="description">Description</Form.Label>
+      </Form.Row>
+      <Form.Row
+        label="Description"
+        htmlFor="description"
+        error={errors?.description?.message}
+      >
         <Form.Textarea
           id="description"
           name="description"
@@ -120,10 +123,8 @@ const CreateCabin = () => {
             required: "This field is required",
           })}
         />
-        {errors.description && (
-          <Form.Error>{errors.description.message}</Form.Error>
-        )}
-      </Form.Group>
+      </Form.Row>
+
       <ButtonGroup>
         <Button $variant="secondary" type="reset">
           Cancel

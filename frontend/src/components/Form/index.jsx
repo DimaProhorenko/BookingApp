@@ -51,4 +51,15 @@ Form.Error = function FormError({ children, ...restProps }) {
   return <Error {...restProps}>{children}</Error>;
 };
 
+Form.Row = function FormRow({ children, label, htmlFor, error }) {
+  return (
+    <Group>
+      <Label htmlFor={htmlFor}>{label}</Label>
+      {children}
+
+      {error && <Error>{error}</Error>}
+    </Group>
+  );
+};
+
 export default Form;
